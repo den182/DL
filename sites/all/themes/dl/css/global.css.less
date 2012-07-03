@@ -24,13 +24,20 @@
 @box-shadow : #999;
 @box-border-color : #ccc;
 @zone-background-color : #fff;
-@menu-bg-color : #fffffe;
+@menu-bg-color : #376392;
+@main-menu-height : 40px;
 
 /**
 * styles
 */
 body {
   /* background:url('../images/bg.png') repeat 0 0 transparent;  */
+}
+
+body a, 
+body a:link, 
+body a:visited {
+  text-decoration:none;
 }
 
 .zone {
@@ -80,7 +87,20 @@ body {
 
 #zone-menu {
   background:@menu-bg-color;
-  
+  height:@main-menu-height;
+}
+
+#zone-menu #superfish-1 {
+  display:block;
+  height:100%;
+}
+
+#zone-menu #superfish-1 .sf-depth-1 {
+  height:@main-menu-height;
+  line-height:@main-menu-height;
+  color:#fff;
+  font-weight:bold;
+  font-size:15px;
 }
 
 #region-sidebar-first,
