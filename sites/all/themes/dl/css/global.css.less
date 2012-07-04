@@ -43,7 +43,8 @@
 @block-header-color : #0A219B;
 @block-border: 1px dashed #40AFF8;
 @link-hover-color : #509CCC;
-
+@lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
+@page-title-color : #04345F;
 /**
 * styles
 */
@@ -149,7 +150,13 @@ body {
   .breadcrumb {
     padding:0;
   }
-}   
+}  
+
+#page-title {
+  font-family:Arial;
+  line-height:36px;
+  color:@page-title-color;
+} 
     
 aside .block {
   background: @block-bg;
@@ -160,6 +167,29 @@ aside .block {
     color: @block-header-color;
     border-bottom: 1px dashed #fff;
     margin-bottom: 10px;  
+  }
+}
+
+.view-id-lessons.view-display-id-page {
+  .views-row {
+    background: @lesson-teaser-bg;
+    border:1px dashed @box-border-color;  
+    margin-bottom:20px;
+  }
+  .inside {
+    margin:0;
+  }
+  .panel-col-first {
+    width:25%;
+  }
+  .panel-col-last {
+    width:74%;
+    padding-top:10px;
+  }
+  .views-field-title {
+    a {
+      font-size:20px;
+    }
   }
 }
 
