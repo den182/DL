@@ -7,6 +7,12 @@
   -moz-box-shadow: @x @y @blur @color;  
 }
 
+.add-box-shadow-inset(@x, @y, @blur, @color) {
+  box-shadow: @x @y @blur @color inset;
+  -webkit-box-shadow: @x @y @blur @color inset;
+  -moz-box-shadow: @x @y @blur @color inset;  
+}
+
 .add-text-shadow(@x, @y, @blur, @color) {
   text-shadow: @x @y @blur @color;
   -webkit-text-shadow: @x @y @blur @color;
@@ -44,7 +50,7 @@
 @block-border: 1px dashed #40AFF8;
 @link-hover-color : #509CCC;
 @lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
-@page-title-color : #04345F;
+@page-title-color : #364DA8;
 /**
 * styles
 */
@@ -61,12 +67,17 @@ body {
   button, 
   input[type="reset"], 
   input[type="submit"], 
-  input[type="button"] {
+  input[type="button"],
+  button:hover, 
+  input[type="reset"]:hover, 
+  input[type="submit"]:hover, 
+  input[type="button"]:hover {
     text-shadow:none;
     background:@menu-bg-color;
     color:#fff;
     .add-border-radius(5px);
     border:none;
+    .add-box-shadow-inset(0, 0, 36px, #A4EFFC);
   }
   #region-content {
     padding-bottom:20px;
@@ -189,6 +200,22 @@ aside .block {
   .views-field-title {
     a {
       font-size:20px;
+    }
+  }
+}
+
+.comment-wrapper {
+  .comment-form-title-wrapper {
+    border:1px solid #ccc;
+    padding:20px;
+    
+    .form-item-comment-body-und-0-value {
+      label {
+        display:none;
+      }
+      .grippie {
+        display:none;
+      }
     }
   }
 }

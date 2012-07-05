@@ -10,3 +10,21 @@
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
+ 
+/**
+* comment form alter
+* 
+*/
+ 
+function dl_form_comment_form_alter(&$form, &$form_state, &$form_id) {
+  $form['comment_body']['#after_build'][] = 'dl_customize_comment_form';  
+}
+
+/**
+* Customize comment form
+*/
+ 
+function dl_customize_comment_form(&$form) {  
+  $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE; // Note LANGUAGE_NONE, you may need to set your comment form language code instead 
+  return $form;  
+}
