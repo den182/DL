@@ -17,7 +17,8 @@
 */
  
 function dl_form_comment_form_alter(&$form, &$form_state, &$form_id) {
-  $form['comment_body']['#after_build'][] = 'dl_customize_comment_form';  
+  $form['comment_body']['#after_build'][] = 'dl_customize_comment_form';
+  unset($form['actions']['preview']);
 }
 
 /**
