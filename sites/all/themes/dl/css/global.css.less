@@ -51,6 +51,9 @@
 @link-hover-color : #509CCC;
 @lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
 @page-title-color : #364DA8;
+@comment-form-background : #FAFDFD;
+@comment-odd-background : #EFFCFF;
+@comment-even-background : #F6F2FF;
 /**
 * styles
 */
@@ -79,10 +82,23 @@ body {
     border:none;
     .add-box-shadow-inset(0, 0, 36px, #A4EFFC);
   }
+  form input[type="text"],
+  form input[type="password"],
+  form textarea {
+    .add-border-radius(15px);
+    padding:10px;
+    min-height:35px;    
+  }
   #region-content {
     padding-bottom:20px;
   }
-}    
+} 
+
+body h2 {
+  color: @block-header-color;
+  border-bottom: 1px dashed #fff;
+  margin-bottom: 10px;
+}   
 
 .zone {
   position: relative;
@@ -136,6 +152,7 @@ body {
       color:#fff;
       font-weight:bold;
       font-size:15px;
+      margin:0 10px 0 0;
     }
   }
 }
@@ -205,9 +222,35 @@ aside .block {
 }
 
 .comment-wrapper {
+  .comment.odd {
+    background:@comment-odd-background;
+  }
+  .comment.even {
+    background:@comment-even-background;
+  }
+  .comment {
+    padding:10px;
+    border:1px solid #ccc;
+    margin:0 0 10px 0;
+    .add-border-radius(10px);
+    h3 {
+      display:none;
+    }
+    
+    .comment-links {
+      float:right;
+    }
+  }
+  
+  .user-picture {
+    float:left;
+    margin:0 20px 0 0;
+  }
   .comment-form-title-wrapper {
     border:1px solid #ccc;
     padding:20px;
+    background: @comment-form-background;    
+    .add-border-radius(15px);
     
     .form-item-comment-body-und-0-value {
       label {

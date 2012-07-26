@@ -29,3 +29,11 @@ function dl_customize_comment_form(&$form) {
   $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE; // Note LANGUAGE_NONE, you may need to set your comment form language code instead 
   return $form;  
 }
+
+/**
+* comment preprocess
+*/
+
+function dl_preprocess_comment(&$vars) {
+  $vars['attributes_array']['class'][] = $vars['zebra']; //Add zebra to classes
+}
