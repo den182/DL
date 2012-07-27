@@ -21,6 +21,11 @@ function dl_form_comment_form_alter(&$form, &$form_state, &$form_id) {
   unset($form['actions']['preview']);
 }
 
+function dl_form_comment_node_article_form_alter (&$form, &$form_state, &$form_id) {
+  $form['#prefix'] = '<div class="comment-form-title-wrapper">';
+  $form['#suffix'] = '</div>';
+}
+
 /**
 * Customize comment form
 */

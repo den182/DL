@@ -26,6 +26,18 @@
   border-radius: @radius;
 }
 
+.add-border-top-radius(@radius : 15px) {
+  -moz-border-top-left-radius: @radius; /* Firefox */
+  -webkit-border-top-left-radius: @radius; /* Safari, Chrome */
+  -khtml-border-top-left-radius: @radius; /* KHTML */
+  border-top-left-radius: @radius;
+  
+    -moz-border-top-right-radius: @radius; /* Firefox */
+  -webkit-border-top-right-radius: @radius; /* Safari, Chrome */
+  -khtml-border-top-right-radius: @radius; /* KHTML */
+  border-top-right-radius: @radius;  
+}
+
 .add-border-top-and-bottom(@width : 1px, @type : solid, @color : #000) {
   border-top: @width @type @color;
   border-bottom: @width @type @color;
@@ -54,6 +66,7 @@
 @comment-form-background : #FAFDFD;
 @comment-odd-background : #EFFCFF;
 @comment-even-background : #F6F2FF;
+@tabs-border : 1px solid #4F4FA0;
 /**
 * styles
 */
@@ -169,6 +182,7 @@ body h2 {
 }
 
 #zone-content {
+  min-height:800px;
   .add-border-left-and-right(1px, , @box-border-color);
   border-bottom:1px solid @box-border-color;
 }
@@ -221,6 +235,7 @@ aside .block {
   }
 }
 
+.page-comment-reply,
 .comment-wrapper {
   .comment.odd {
     background:@comment-odd-background;
@@ -247,10 +262,19 @@ aside .block {
     margin:0 20px 0 0;
   }
   .comment-form-title-wrapper {
+    .comment-form-title-wrapper {
+      border:none;
+      background:transparent;
+      padding:0;
+    }
     border:1px solid #ccc;
     padding:20px;
     background: @comment-form-background;    
     .add-border-radius(15px);
+    
+    #edit-author--2 {
+      display:none;
+    }
     
     .form-item-comment-body-und-0-value {
       label {
@@ -263,3 +287,30 @@ aside .block {
   }
 }
 
+
+ul.tabs,
+ul.tabs.primary {
+  padding: 0 0 5px 1em;
+  border-bottom: @tabs-border;    
+  li{
+    a {
+      border: @tabs-border;
+      .add-border-top-radius(10px);
+      background: #3C7DCF;
+      color:#fff;
+      padding:5px 10px;
+      font-weight:bold;
+      font-size:16px;
+    }
+    a:hover {
+      background:#8FB4E2;
+    }
+  }
+  li.active {
+    a {
+      color:#3C7DCF;
+      background:#fff;
+      border-bottom:2px solid #fff;
+    }
+  }
+}
