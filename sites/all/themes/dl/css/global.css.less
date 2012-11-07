@@ -67,11 +67,22 @@
 @comment-odd-background : #EFFCFF;
 @comment-even-background : #F6F2FF;
 @tabs-border : 1px solid #4F4FA0;
+
+/*
+@body-bg : url('../images/bg.png') repeat 0 0 transparent;
+@footer-bg : url('../images/footer-bg.png') repeat-x 0 0 #06071d;
+@footer-icon : url('../images/footer-logo.png') no-repeat 0 0 transparent;
+*/
+
+@body-bg : #fff;
+@footer-bg : #fff;
+@footer-icon : #fff;
+
 /**
 * styles
 */
 body {
-  background:url('../images/bg.png') repeat 0 0 transparent;
+  background:@body-bg;
   a, 
   a:link, 
   a:visited {
@@ -132,7 +143,7 @@ body h2 {
 #section-footer {
   margin-top:80px;
   min-height:270px;
-  background:url('../images/footer-bg.png') repeat-x 0 0 #06071d;
+  background:@footer-bg;
   .add-box-shadow(0, -4px, 11px, @box-shadow);
   padding:40px 0 0 0;
   .zone {
@@ -144,7 +155,7 @@ body h2 {
 }
 
 #section-footer:before {
-  background:url('../images/footer-logo.png') no-repeat 0 0 transparent;
+  background:@footer-icon;
   width:88px;
   height:100px;
   display:block;

@@ -8,18 +8,20 @@ function dl_course_node_load($nodes, $types) {
   foreach($nodes as $node) {
     switch($node->type) {
       case 'article':
-        if (isset($node->field_lessons) && count($node->field_lessons['und']) > 0) {  //set lessons order
-          $query = db_select('field_data_field_order_number' , 'fon');
-          $query->fields('fon', array('entity_id'));
-          $query->innerJoin('field_data_field_lessons', 'fl', 'fl.field_lessons_target_id = fon.entity_id');
-          $query->condition('fl.entity_id', $node->nid);
-          $query->orderBy('fon.field_order_number_value');
-          $results = $query->execute();
-          
-          $i = 0;
-          foreach($results as $record) {
-            $node->field_lessons['und'][$i]['target_id'] = $record->entity_id;
-            $i++;
+        if (isset($node->field_lessons['und'])) {  //set lessons order
+          if (count($node->field_lessons['und']) > 0) {
+            $query = db_select('field_data_field_order_number' , 'fon');
+            $query->fields('fon', array('entity_id'));
+            $query->innerJoin('field_data_field_lessons', 'fl', 'fl.field_lessons_target_id = fon.entity_id');
+            $query->condition('fl.entity_id', $node->nid);
+            $query->orderBy('fon.field_order_number_value');
+            $results = $query->execute();
+            
+            $i = 0;
+            foreach($results as $record) {
+              $node->field_lessons['und'][$i]['target_id'] = $record->entity_id;
+              $i++;
+            }
           }
         }
         break;
