@@ -1,5 +1,7 @@
 <?php
 
+module_load_include('inc', 'dl_course', 'inc/dl_course.functions');
+
 /**
  * implementation of hook_node_load
  */
@@ -27,4 +29,47 @@ function dl_course_node_load($nodes, $types) {
         break;
     }
   }
+}
+
+/**
+ * implementation of hook_block_info
+ */
+ 
+
+function dl_course_block_info() {
+  $blocks['course_navigate'] = array(
+    'info' => t('Course navigation'), 
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * implementation of hook_block_view
+ */
+ 
+function dl_course_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'course_navigate':
+      $block['subject'] = t('Course navigation');
+      $block['content'] = _dl_course_get_course_navigation_block_content();
+      break;
+  }
+  return $block;
+}
+
+
+/**
+ * implementatin of hook_theme
+ */
+ 
+function dl_course_theme($existing, $type, $theme, $path) {
+  return array(
+    'course_navigation' => array(
+      'file' => 'inc/dl_course.theme.inc',
+    ), 
+  );
 }
