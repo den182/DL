@@ -35,7 +35,8 @@ function _dl_course_get_course_navigation_block_content() {
     
     $vars = array();
     $vars['prev_lesson'] = $prevLesson; 
-    $vars['next_lesson'] = $nextLesson; 
+    $vars['next_lesson'] = $nextLesson;
+    $vars['node'] = $node; 
         
     return theme('course_navigation', $vars);
   }
