@@ -16,7 +16,7 @@ function _dl_course_get_course_navigation_block_content() {
     $query->innerJoin('node', 'n', 'fon.entity_id = n.nid');
     $query->condition('fon.entity_id', $node->nid, '<>');
     $query->condition('fon.field_order_number_value', $order_number, '>');
-    $query->orderBy('fon.field_order_number_value', 'DESC');
+    $query->orderBy('fon.field_order_number_value');
     $query->range(0, 1);
     
     $nextLesson = $query->execute()->fetchAssoc();
@@ -28,7 +28,7 @@ function _dl_course_get_course_navigation_block_content() {
     $query->innerJoin('node', 'n', 'fon.entity_id = n.nid');
     $query->condition('fon.entity_id', $node->nid, '<>');
     $query->condition('fon.field_order_number_value', $order_number, '<');
-    $query->orderBy('fon.field_order_number_value');
+    $query->orderBy('fon.field_order_number_value', 'DESC');
     $query->range(0, 1);
     
     $prevLesson = $query->execute()->fetchAssoc();
