@@ -33,9 +33,20 @@ function _dl_course_get_course_navigation_block_content() {
     
     $prevLesson = $query->execute()->fetchAssoc();
     
+    $query = db_select('field_data_field_lessons', 'fl');
+    $query->innerJoin('field_data_field_image', 'fi', 'fi.entity_id = fl.entity_id');
+    $query->innerJoin('file_managed', 'fm', 'fm.fid = fi.field_image_fid');
+    $query->fields('fm', array('uri'));
+    $query->condition('fl.field_lessons_target_id', $node->nid);
+    $query->range(0, 1);
+    
+    $course_data = $query->execute()->fetchAssoc();
+    dsm($course_data);
+    
     $vars = array();
     $vars['prev_lesson'] = $prevLesson; 
     $vars['next_lesson'] = $nextLesson;
+    $vars['course_data'] = $course_data;
     $vars['node'] = $node; 
         
     return theme('course_navigation', $vars);
