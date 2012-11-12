@@ -52,7 +52,7 @@ function dl_course_node_view($node, $view_mode, $langcode) {
       
       $breadcrumbs[] = l($last_term->name, 'taxonomy/term/' . $last_term->tid);
       
-      $breadcrumbs[] = $node->title;
+      $breadcrumbs[] = truncate_utf8($node->title, 30, FALSE, TRUE, FALSE);
       
       drupal_set_breadcrumb($breadcrumbs);
       break;
@@ -80,9 +80,9 @@ function dl_course_node_view($node, $view_mode, $langcode) {
       
       $breadcrumbs[] = l($last_term->name, 'taxonomy/term/' . $last_term->tid);
       
-      $breadcrumbs[] = l($course_data['title'], 'node/' . $course_data['nid']);
+      $breadcrumbs[] = l(truncate_utf8($course_data['title'], 30, FALSE, TRUE, FALSE), 'node/' . $course_data['nid']);
       
-      $breadcrumbs[] = $node->title;
+      $breadcrumbs[] = truncate_utf8($node->title, 30, FALSE, TRUE, FALSE);
       drupal_set_breadcrumb($breadcrumbs);
       break;
   }   

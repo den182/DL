@@ -52,15 +52,15 @@
 * variables
 */
 
-/*
+
 @box-shadow : #999;
 @box-border-color : #ccc;
 @zone-background-color : #fff;
 @menu-bg-color : #376392;
 @main-menu-height : 40px;
-@block-bg : #D0E2F0;
+@block-bg : #D9D9D9;
 @block-header-color : #0A219B;
-@block-border: 1px dashed #40AFF8;
+@block-border: 2px solid #AAA;
 @link-hover-color : #509CCC;
 @lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
 @page-title-color : #364DA8;
@@ -71,8 +71,8 @@
 @body-bg : url('../images/bg.png') repeat 0 0 transparent;
 @footer-bg : url('../images/footer-bg.png') repeat-x 0 0 #06071d;
 @footer-icon : url('../images/footer-logo.png') no-repeat 0 0 transparent;
-*/
 
+/*
 @box-shadow : none;
 @box-border-color : #fff;
 @zone-background-color : #fff;
@@ -91,7 +91,7 @@
 @body-bg : #fff;
 @footer-bg : #fff;
 @footer-icon : #fff;
-
+*/
 /**
 * styles
 */
@@ -220,7 +220,7 @@ body h2 {
 }  
 
 #page-title {
-  font-family:Arial;
+  font-family:Tahoma;
   line-height:36px;
   color:@page-title-color;
 } 
@@ -230,6 +230,8 @@ aside .block {
   padding: 10px 20px;
   border: @block-border; 
   margin-bottom:10px;
+  .add-box-shadow(0, 0, 10px, #999);
+  .add-border-radius(10px);
   h2 {
     color: @block-header-color;
     border-bottom: 1px dashed #fff;
@@ -337,5 +339,28 @@ ul.tabs.primary {
       background:#fff;
       border-bottom:2px solid #fff;
     }
+  }
+}
+
+#course-navigation-wrapper {
+  .course-logo-wrapper {
+    img {
+      width:100%;
+      height:auto;
+    }
+  }
+  .course-title-wrapper {
+    font-family:Tahoma;
+    margin-bottom:5px;
+    color:#333;
+    .add-text-shadow(1px, 1px, 1px, #fff);
+    line-height:20px;
+  }
+  .title {
+    font-family:Tahoma;
+    font-weight:bold;
+  }
+  .nav-item {
+    padding-top: 10px;
   }
 }
