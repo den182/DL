@@ -38,6 +38,18 @@
   border-top-right-radius: @radius;  
 }
 
+.add-border-bottom-radius(@radius : 15px) {
+  -moz-border-bottom-left-radius: @radius; /* Firefox */
+  -webkit-border-bottom-left-radius: @radius; /* Safari, Chrome */
+  -khtml-border-bottom-left-radius: @radius; /* KHTML */
+  border-bottom-left-radius: @radius;
+  
+    -moz-border-bottom-right-radius: @radius; /* Firefox */
+  -webkit-border-bottom-right-radius: @radius; /* Safari, Chrome */
+  -khtml-border-bottom-right-radius: @radius; /* KHTML */
+  border-bottom-right-radius: @radius;  
+}
+
 .add-border-top-and-bottom(@width : 1px, @type : solid, @color : #000) {
   border-top: @width @type @color;
   border-bottom: @width @type @color;
@@ -362,5 +374,47 @@ ul.tabs.primary {
   }
   .nav-item {
     padding-top: 10px;
+  }
+}
+
+#block-menu-menu-sections {
+  background: none;
+  padding:0;
+  box-shadow: none;
+  border-radius:0;
+  border:none;
+  .menu {
+    margin-bottom:10px;
+    li {
+      list-style:none;
+      padding:0;
+      margin:0;
+      a {
+        background: #0A2F3C;
+        color: white;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        padding: 7px;
+        font-size: 18px;
+        .add-border-top-radius(10px);
+      }
+      ul.menu {
+        background: #608299;
+        padding: 10px;
+        .add-border-bottom-radius(10px);
+        li {
+          list-style:none;
+          a {
+            color:#fff;
+            padding:0;
+            background:transparent;
+            font-size:14px;
+            text-align:left;
+            font-weight:normal;
+          }
+        }
+      }
+    }
   }
 }
