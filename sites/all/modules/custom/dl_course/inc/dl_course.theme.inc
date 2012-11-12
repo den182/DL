@@ -7,15 +7,17 @@ function theme_course_navigation($vars) {
   
   $output .= '<div id="course-navigation-wrapper">';
     
+    $output .= '<h3 class="course-title-wrapper">' . $course_data['title'] . '</h3>';
+    
     $image_settings = array(
       'style_name' => 'medium',
       'path' => $course_data['uri'],
-      'alt' => '$record->alt',
-      'title' => '$record->title',
+      'alt' => $course_data['field_image_alt'],
+      'title' => '',
       'attributes' => array('class' => 'image'),
       'getsize' => FALSE,
     );
-    $output .= theme('image_style', $image_settings);
+    $output .= '<div class="course-logo-wrapper">' . theme('image_style', $image_settings) . "</div>";
   
     if ($vars['prev_lesson']) {
       $output .= '<div>';
