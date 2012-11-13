@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * implementation of hook_init
+ */
+
+
+function dl_blog_init() {
+  global $base_url;
+  if (arg(0) == 'blog' && arg(1) == '') {
+    $breadcrumbs = array();
+    $breadcrumbs[] = l('Главная', $base_url);
+    $breadcrumbs[] = t('Блог');
+    drupal_set_breadcrumb($breadcrumbs);
+  }
+}

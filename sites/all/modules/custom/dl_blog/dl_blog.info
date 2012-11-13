@@ -1,0 +1,4 @@
+name = DL blog
+description = Provide DL blog functionality
+core = 7.x
+package = DL
