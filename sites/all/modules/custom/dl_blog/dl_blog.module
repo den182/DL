@@ -4,7 +4,6 @@
  * implementation of hook_init
  */
 
-
 function dl_blog_init() {
   global $base_url;
   if (arg(0) == 'blog' && arg(1) == '') {
@@ -13,4 +12,22 @@ function dl_blog_init() {
     $breadcrumbs[] = t('Блог');
     drupal_set_breadcrumb($breadcrumbs);
   }
+}
+
+/**
+ * implementation of hook_node_view
+ */
+
+function dl_blog_node_view($node, $view_mode, $langcode) {
+  global $base_url;
+  switch($node->type) {
+    case 'blog':
+      $breadcrumbs = array();
+      $breadcrumbs[] = l('Главная', $base_url);
+      $breadcrumbs[] = l('Блог', 'blog');
+      $breadcrumbs[] = l($node->field_blog_category['und'][0]['taxonomy_term']->name, 'blog/' . $node->field_blog_category['und'][0]['taxonomy_term']->tid);
+      $breadcrumbs[] = truncate_utf8($node->title, 30, FALSE, TRUE, FALSE);
+      drupal_set_breadcrumb($breadcrumbs);
+      break;
+  }  
 }

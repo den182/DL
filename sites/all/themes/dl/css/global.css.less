@@ -75,7 +75,7 @@
 @block-border: 2px solid #AAA;
 @link-hover-color : #509CCC;
 @lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
-@page-title-color : #364DA8;
+@page-title-color : #5C6791;
 @comment-form-background : #FAFDFD;
 @comment-odd-background : #EFFCFF;
 @comment-even-background : #F6F2FF;
@@ -135,7 +135,8 @@ body {
   form input[type="text"],
   form input[type="password"],
   form textarea {
-    .add-border-radius(15px);
+    .add-border-radius(8px);
+    .add-box-shadow-inset(1px, 1px, 7px, #4D4D4D);
     padding:10px;
     min-height:35px;    
   }
@@ -416,6 +417,39 @@ ul.tabs.primary {
           }
         }
       }
+    }
+  }
+}
+
+.view-id-blog.view-display-id-page {
+  .views-row {
+    padding: 10px;
+    border: 2px solid #CFCFCF;
+    background: -webkit-linear-gradient(#DFDFDF,#C4D3EE);
+    border-radius: 7px;
+    margin-bottom: 15px;
+    min-height:110px;
+    .add-box-shadow(0, 0, 12px, #ccc);
+    .data-wrapper {
+      width: 100px;
+      float: left;
+      background: -webkit-linear-gradient(#919191, #475A7C);
+      border-radius: 7px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-shadow: 0px 0px 5px #6C87C2;;
+    }
+    .views-field-title {
+      margin-left:110px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #414D75;
+      margin-top: -5px;
+    }
+    .views-field-body {
+      margin-left:110px;
     }
   }
 }
