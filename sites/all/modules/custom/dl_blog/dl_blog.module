@@ -22,12 +22,14 @@ function dl_blog_node_view($node, $view_mode, $langcode) {
   global $base_url;
   switch($node->type) {
     case 'blog':
-      $breadcrumbs = array();
-      $breadcrumbs[] = l('Главная', $base_url);
-      $breadcrumbs[] = l('Блог', 'blog');
-      $breadcrumbs[] = l($node->field_blog_category['und'][0]['taxonomy_term']->name, 'blog/' . $node->field_blog_category['und'][0]['taxonomy_term']->tid);
-      $breadcrumbs[] = truncate_utf8($node->title, 30, FALSE, TRUE, FALSE);
-      drupal_set_breadcrumb($breadcrumbs);
+      if ($view_mode == 'full') {
+        $breadcrumbs = array();
+        $breadcrumbs[] = l('Главная', $base_url);
+        $breadcrumbs[] = l('Блог', 'blog');
+        $breadcrumbs[] = l($node->field_blog_category['und'][0]['taxonomy_term']->name, 'blog/' . $node->field_blog_category['und'][0]['taxonomy_term']->tid);
+        $breadcrumbs[] = truncate_utf8($node->title, 30, FALSE, TRUE, FALSE);
+        drupal_set_breadcrumb($breadcrumbs);
+      }
       break;
   }  
 }
