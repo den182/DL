@@ -9,6 +9,13 @@ function _dl_course_get_course_navigation_block_content() {
     $node = node_load(arg(1));
     $order_number = $node->field_order_number['und'][0]['value'];
 
+    $query = db_select('field_data_field_lessons', 'fl')
+    ->condition('fl.field_lessons_target_id', $node->nid)
+    ->fields('fl', array('entity_id'))
+    ->range(0, 1)
+    ->execute();
+    $course_id = $query->fetchField();
+
     $query = db_select('field_data_field_order_number' , 'fon');
     $query->fields('fon', array('entity_id'));
     $query->fields('n', array('title'));
@@ -16,6 +23,7 @@ function _dl_course_get_course_navigation_block_content() {
     $query->innerJoin('node', 'n', 'fon.entity_id = n.nid');
     $query->condition('fon.entity_id', $node->nid, '<>');
     $query->condition('fon.field_order_number_value', $order_number, '>');
+    $query->condition('fl.entity_id', $course_id);
     $query->orderBy('fon.field_order_number_value');
     $query->range(0, 1);
     
@@ -28,6 +36,7 @@ function _dl_course_get_course_navigation_block_content() {
     $query->innerJoin('node', 'n', 'fon.entity_id = n.nid');
     $query->condition('fon.entity_id', $node->nid, '<>');
     $query->condition('fon.field_order_number_value', $order_number, '<');
+    $query->condition('fl.entity_id', $course_id);
     $query->orderBy('fon.field_order_number_value', 'DESC');
     $query->range(0, 1);
     
