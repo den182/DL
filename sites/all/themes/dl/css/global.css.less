@@ -261,6 +261,12 @@ aside .block {
     background: @lesson-teaser-bg;
     border:1px dashed @box-border-color;  
     margin-bottom:20px;
+    p {
+      margin-bottom:10px;
+    }
+    ul {
+      margin-left:20px;
+    }
   }
   .inside {
     margin:0;
@@ -272,6 +278,7 @@ aside .block {
         max-width:100%;
         width:100%;
         height:auto;
+        background:#dadada;
       }  
     }
   }
@@ -476,8 +483,11 @@ ul.tabs.primary {
 
 .node-lesson {
   img {
-    width:100%;
+    width:auto !important;
     height:auto !important;
-    max-width:100% !important;
+    max-width:97% !important;
+    padding:10px;
+    border:1px solid #ccc;
+    .add-box-shadow(0, 0, 10px, #ccc);
   }
 }
