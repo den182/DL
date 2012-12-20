@@ -75,7 +75,7 @@
 @block-border: 2px solid #AAA;
 @link-hover-color : #509CCC;
 @lesson-teaser-bg : url('../images/teaser-bg.png') repeat 0 0 transparent;
-@page-title-color : #5C6791;
+@page-title-color : #304491;
 @comment-form-background : -webkit-linear-gradient(#C4C7E9, #E6E1E1);
 @comment-odd-background : #EFFCFF;
 @comment-even-background : #F6F2FF;
@@ -109,6 +109,45 @@
 */
 body {
   background:@body-bg;
+  ol {
+    list-style-position:inside;
+  }
+  li.comment-add {
+    display:none;
+  }
+  .node {
+    .content {
+      h2 {
+        color: #2B2B2B;
+        font-size:19px;
+      }
+      h3 {
+        color: #2B2B2B;
+        font-size:17px; 
+      }
+      ol {
+        padding-left:0;
+        li {
+          padding-left:0;
+        }
+      }
+      ul {
+        padding:0;
+        li {
+          padding-left:25px;
+          list-style:none;
+          margin-left:20px;
+          background:url('../images/list-item.png') no-repeat 0 0 transparent;
+        }
+        ul {
+          li {
+            background:url('../images/list-sub-item.png') no-repeat 0 0 transparent;  
+            margin-left:0; 
+          }  
+        }
+      }
+    }
+  }
   a, 
   a:link, 
   a:visited {
@@ -235,10 +274,13 @@ body h2 {
   }
 }  
 
+.pane-title,
 #page-title {
   font-family:Tahoma;
-  line-height:36px;
+  font-size:25px;
   color:@page-title-color;
+  text-align: center;
+  line-height:25px;
 } 
     
 aside .block {
@@ -283,13 +325,16 @@ aside .block {
     }
   }
   .panel-col-last {
-    width:74%;
-    padding-top:10px;
-    padding-left:10px;
+    width: 73%;
+    padding-top: 10px;
+    padding-left: 17px;
   }
   .views-field-title {
     a {
-      font-size:20px;
+      font-size: 20px;
+      padding-bottom: 10px;
+      display: block;
+      line-height: 20px;
     }
   }
 }
@@ -412,6 +457,7 @@ ul.tabs.primary {
     margin-bottom:10px; 
     li {
       list-style:none;
+      padding:0;
       margin:0;
       a {
         background: #0A2F3C;
@@ -548,5 +594,31 @@ ul.tabs.primary {
   }
   a {
     font-weight:bold;
+  }
+}
+
+.view-id-lessons_home_page {
+  .views-row {
+    clear:both;
+    padding-bottom:10px;
+    padding-top:10px;
+    min-height:100px;
+    border-bottom: 1px dashed #8D8D8D;
+    &.views-row-last {
+      border:none;
+    }
+    &.views-row-first {
+      padding-top:0;
+    }
+    .views-field-field-image {
+      float:left;
+      padding-right:10px;
+      img {
+        border:1px solid #ccc;
+      }
+    }
+    p {
+      margin:0;
+    }
   }
 }
