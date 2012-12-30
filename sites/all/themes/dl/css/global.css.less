@@ -60,6 +60,13 @@
   border-right: @width @type @color;
 }
 
+.top-to-bottom-gradient(@top-color, @bottom-color) {
+  background: @top-color;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@top-color, endColorstr=@bottom-color);
+  background: -webkit-gradient(linear, left top, left bottom, from(@top-color), to(@bottom-color));
+  background: -moz-linear-gradient(top,  @top-color,  @bottom-color);
+}
+
 /**
 * variables
 */
@@ -234,8 +241,9 @@ body h2 {
 }
 
 #zone-menu {
-  background:@menu-bg-color;
+  border:1px dashed #fff;
   height:@main-menu-height;
+  .top-to-bottom-gradient(#376392, #55868A);
   #superfish-1 {
     display:block;
     height:100%;
@@ -246,6 +254,7 @@ body h2 {
       font-weight:bold;
       font-size:15px;
       margin:0 10px 0 0;
+      .add-text-shadow(1px, 1px, 1px, #333);
     }
   }
 }
@@ -259,6 +268,11 @@ body h2 {
 #zone-branding,
 #zone-menu {
   .add-border-left-and-right(1px , , @box-border-color);
+}
+
+#zone-branding {
+  min-height:130px;
+  background:url('../images/header-bg.png') repeat 0 0 transparent;
 }
 
 #zone-content {
@@ -499,21 +513,21 @@ ul.tabs.primary {
   .views-row {
     padding: 10px;
     border: 2px solid #CFCFCF;
-    background: -webkit-linear-gradient(#DFDFDF,#C4D3EE);
     border-radius: 7px;
     margin-bottom: 15px;
     min-height:110px;
+    .top-to-bottom-gradient(#DFDFDF, #C4D3EE);
     .add-box-shadow(0, 0, 12px, #ccc);
     .data-wrapper {
       width: 100px;
       float: left;
-      background: -webkit-linear-gradient(#919191, #475A7C);
       border-radius: 7px;
       text-align: center;
       color: white;
       font-weight: bold;
       font-size: 18px;
-      text-shadow: 0px 0px 5px #6C87C2;;
+      text-shadow: 0px 0px 5px #6C87C2;
+      .top-to-bottom-gradient(#919191, #475A7C);
     }
     .views-field-title {
       margin-left:110px;
@@ -577,8 +591,7 @@ ul.tabs.primary {
   min-height: 122px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background: #e6e6e6;
-  background: -webkit-linear-gradient(#A8D1F7, #E6E6E6);
+  .top-to-bottom-gradient(#A8D1F7, #E6E6E6);
   .add-border-radius(7px);
   .user-picture {
     float:left;
